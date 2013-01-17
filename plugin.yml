@@ -1,0 +1,8 @@
+name: Fearful Mounts
+main: com.evilmidget38.fearfulmounts.FearfulMounts
+version: 0.1
+author: evilmidget38
+commands:
+  mount:
+    usage: /<command>
+    permissions: fearfulmounts.mount
