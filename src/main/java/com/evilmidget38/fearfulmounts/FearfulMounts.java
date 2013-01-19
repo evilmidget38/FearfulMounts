@@ -60,7 +60,7 @@ public class FearfulMounts extends JavaPlugin implements Listener {
     public boolean onCommand(CommandSender sender, Command cmd, String cmdLabel, String[] args) {
         if (!(sender instanceof Player)) {
             for(String s : consolePig) {
-                    sender.sendMessage(s);
+                sender.sendMessage(s);
             }
             sender.sendMessage("There's your mount.");
             return true;
@@ -115,8 +115,10 @@ public class FearfulMounts extends JavaPlugin implements Listener {
     @EventHandler(ignoreCancelled = true)
     public void onPlayerQuit(PlayerQuitEvent e) {
         Pig pig = getMount(mounts.get(e.getPlayer().getName()), e.getPlayer().getWorld());
-        pig.remove();
-        mounts.remove(e.getPlayer().getName());
+        if (pig != null) {
+            pig.remove();
+            mounts.remove(e.getPlayer().getName());
+        }
     }
 
     public Pig getMount(UUID id, World world) {
@@ -130,11 +132,12 @@ public class FearfulMounts extends JavaPlugin implements Listener {
 
     public Location getRandomNearby(Location loc) {
         Random rand = new Random();
-        int x = rand.nextInt(4)-2;
-        int z = rand.nextInt(4)-2;
-        Location random = new Location(loc.getWorld(), 0, loc.getWorld().getHighestBlockYAt(x, z), 0);
+        int x = (int) (rand.nextInt(4)-2 + loc.getX());
+        int z = (int) (rand.nextInt(4)-2 + loc.getZ());
+        Location highestAt = loc.getWorld().getHighestBlockAt(loc).getLocation();
+        Location random = new Location(loc.getWorld(), x, loc.getWorld().getHighestBlockYAt(x, z), z);
         // This can only happen if the pig is too high or too low from the player.
-        if (random.distanceSquared(loc) > 16) {
+        if (random.distanceSquared(highestAt) > 36) {
             return getRandomNearby(loc);
         }
         return random;
