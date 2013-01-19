@@ -33,7 +33,6 @@
 
   <build>
 		<defaultGoal>clean package install</defaultGoal>
-		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
