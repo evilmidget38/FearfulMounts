@@ -128,7 +128,7 @@ public class FearfulMounts extends JavaPlugin implements Listener {
         Random rand = new Random();
         int x = rand.nextInt(4)-2;
         int z = rand.nextInt(4)-2;
-        Location random = loc.add(x, loc.getWorld().getHighestBlockYAt(x, z), z);
+        Location random = loc.add(0, loc.getWorld().getHighestBlockYAt(x, z)-loc.getY(), 0);
         // This can only happen if the pig is too high or too low from the player.
         if (random.distanceSquared(loc) > 16) {
             return getRandomNearby(loc);
