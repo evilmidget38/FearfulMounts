@@ -28,7 +28,7 @@ public class FearfulMounts extends JavaPlugin implements Listener {
     static String[] consolePig;
     static {
         // The stuff you find on the internet...
-        consolePig = new String[13];
+        consolePig = new String[12];
         consolePig[0] = "         ^,    ,^";
         consolePig[1] = "        /  ----  \\ ";
         consolePig[2] = "       / _\\    /_ \\  Ful";
@@ -38,9 +38,9 @@ public class FearfulMounts extends JavaPlugin implements Listener {
         consolePig[6] = "       \\   .__.   /            \\ '";
         consolePig[7] = "        '.______.'              \\";
         consolePig[8] = "            \\                   |";
-        consolePig[9] = "             |  /____...-----\\  |";
+        consolePig[9] = "             |  /____..._____\\  |";
         consolePig[10] = "             |  |            |  |";
-        consolePig[12] = "             |^^|            |^^|";
+        consolePig[11] = "             |^^|            |^^|";
     }
 
     int health;
