@@ -72,6 +72,8 @@ public class FearfulMounts extends JavaPlugin implements Listener {
             mounts.put(player.getName(), mount.getUniqueId());
             mount.setMaxHealth(health);
             mount.setHealth(health);
+        } else {
+            mount.teleport(getRandomNearby(player.getLocation()));
         }
         if (!player.getInventory().contains(Material.CARROT_STICK)) {
             player.getInventory().addItem(new ItemStack(Material.CARROT_STICK));
