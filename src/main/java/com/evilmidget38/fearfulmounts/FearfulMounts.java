@@ -28,7 +28,7 @@ public class FearfulMounts extends JavaPlugin implements Listener {
     static String[] consolePig;
     static {
         // The stuff you find on the internet...
-        consolePig = new String[12];
+        consolePig = new String[13];
         consolePig[0] = "         ^,    ,^";
         consolePig[1] = "        /  ----  \\ ";
         consolePig[2] = "       / _\\    /_ \\  Ful";
@@ -40,7 +40,7 @@ public class FearfulMounts extends JavaPlugin implements Listener {
         consolePig[8] = "            \\                   |";
         consolePig[9] = "             |  /____...-----\\  |";
         consolePig[10] = "             |  |            |  |";
-        consolePig[12] = "             |^^|            |^^| ";
+        consolePig[12] = "             |^^|            |^^|";
     }
 
     int health;
@@ -132,7 +132,7 @@ public class FearfulMounts extends JavaPlugin implements Listener {
         Random rand = new Random();
         int x = rand.nextInt(4)-2;
         int z = rand.nextInt(4)-2;
-        Location random = loc.add(0, loc.getWorld().getHighestBlockYAt(x, z)-loc.getY(), 0);
+        Location random = new Location(loc.getWorld(), 0, loc.getWorld().getHighestBlockYAt(x, z), 0);
         // This can only happen if the pig is too high or too low from the player.
         if (random.distanceSquared(loc) > 16) {
             return getRandomNearby(loc);
