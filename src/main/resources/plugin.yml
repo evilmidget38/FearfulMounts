@@ -6,3 +6,6 @@ commands:
   mount:
     usage: /<command>
     permissions: fearfulmounts.mount
+  unmount:
+    usage: /<command>
+    permissions: fearfulmounts.unmount
